@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Card Design - HTML & CSS Foundations</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+        /* Reset and base */
+        
+        * {
+            box-sizing: border-box;
+        }
+        
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        /* Container for card with yellow background and shadow */
+        
+        .container {
+            width: 100vw;
+            height: 100vh;
+            /* center horizontally and vertically */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f2ca45;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            position: relative;
+            padding: 30px;
+            overflow: hidden;
+        }
+        /* Card styling */
+        
+        .card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 6px 8px 0 #111;
+            max-width: 320px;
+            width: 100%;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            cursor: default;
+            transition: box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+            box-shadow: 12px 16px 0 #111;
+        }
+        /* Image area on top */
+        
+        .card-image {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            background-color: #f2ca45;
+            /* fallback */
+            position: relative;
+            overflow: hidden;
+            border-top-left-radius: 12px;
+            border-top-right-radius: 12px;
+        }
+        /* SVG style mimicking design */
+        
+        .card-image svg {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        /* Content area */
+        
+        .card-content {
+            padding: 16px 20px 24px 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        /* Category label */
+        
+        .category {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 600;
+            background-color: #f2ca45;
+            color: #222;
+            padding: 3px 10px;
+            border-radius: 4px;
+            user-select: none;
+            width: fit-content;
+            box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.15);
+        }
+        /* Publish date */
+        
+        .publish-date {
+            font-size: 12px;
+            color: #555;
+            user-select: none;
+        }
+        /* Title */
+        
+        .title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #541717;
+            margin: 0;
+            user-select: text;
+        }
+        /* Description text */
+        
+        .description {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.4;
+            user-select: text;
+            flex-grow: 1;
+        }
+        /* Author info container */
+        
+        .author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: auto;
+        }
+        
+        .author img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            object-fit: cover;
+            display: block;
+            box-shadow: 0 0 0 2px white;
+        }
+        
+        .author-name {
+            font-size: 14px;
+            font-weight: 600;
+            color: #222;
+            user-select: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container" role="main" aria-label="Card showing HTML and CSS learning content">
+        <article class="card">
+            <div class="card-image" aria-hidden="true" tabindex="-1">
+                <svg viewBox="0 0 320 180" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" role="img">
+          <rect width="320" height="180" fill="#f2ca45"/>
+          <path d="M40 140c40-60 220-140 240 0z" fill="#111"/>
+          <ellipse cx="80" cy="70" rx="40" ry="35" fill="#fff"/>
+          <ellipse cx="110" cy="75" rx="40" ry="35" fill="#111"/>
+          <ellipse cx="140" cy="80" rx="40" ry="35" fill="#fff"/>
+          <path d="M220 140c10-10 40-40 60-40" fill="none" stroke="#111" stroke-width="2" />
+          <path d="M230 140c10-10 40-40 60-40" fill="none" stroke="#111" stroke-width="2" />
+          <path d="M240 140c10-10 40-40 60-40" fill="none" stroke="#111" stroke-width="2" />
+          <path d="M259 80c10-5 20-20 28-20" fill="none" stroke="#111" stroke-width="2" />
+          <path d="M30 140l70-60" stroke="#fff" stroke-width="1"/>
+          <path d="M55 50h15v15" stroke="#111" stroke-width="2" fill="none" />
+          <path d="M70 47v15h-15" stroke="#111" stroke-width="2" fill="none" />
+        </svg>
+            </div>
+            <div class="card-content">
+                <span class="category" aria-label="Category Learning">Learning</span>
+                <time class="publish-date" datetime="2023-12-21">Published 27 Aug 2025</time>
+                <h1 class="title">HTML & CSS foundations</h1>
+                <p class="description">These languages are the backbone of every website, defining structure, content, and presentation.</p>
+                <div class="author">
+                    <img src="1.jpg" alt="Profile image of Abdelrahman Abaza " onerror="this.style.display='none' " />
+                    <span class="author-name ">Abdelrahman Abaza</span>
+                </div>
+            </div>
+        </article>
+    </div>
+</body>
+
+</html>
